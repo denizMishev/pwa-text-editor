@@ -1,0 +1,16 @@
+header {
+    background-color: #002200;
+    padding: 10px;
+}
+
+.header-btns-ctr button {
+    background-color: #003300;
+    color: #00ff00;
+    padding: 5px 10px;
+    margin-right: 14px;
+    cursor: pointer;
+}
+
+.header-btns-ctr button:hover {
+    background-color: #004400;
+}

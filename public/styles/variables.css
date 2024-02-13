@@ -1,0 +1,8 @@
+:root {
+    --clr-primary-100: hsla(120, 100%, 5%, 1);
+    --clr-primary-200: hsla(120, 100%, 7%, 1);
+    --clr-primary-300: hsla(120, 100%, 10%, 1);
+    --clr-primary-400: hsla(120, 100%, 13%, 1);
+
+    --clr-accent: #00ff00;
+}
