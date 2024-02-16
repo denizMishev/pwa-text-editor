@@ -71,7 +71,7 @@
     padding-right: 5px; 
     text-align: center; 
     user-select: none;
-    color: #00ff00; 
+    color: var(--clr-accent-90);
     background-color: #001900; 
     overflow: hidden; 
     line-height: 1.2; 

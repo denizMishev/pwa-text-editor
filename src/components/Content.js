@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
-import LineNumbers from "./LineNumbers"; // Adjust the path as necessary
+import LineNumbers from "./LineNumbers";
 
 export function Content() {
   const [content, setContent] = useState("");
   const contentRef = useRef(null);
   const lineNumbersRef = useRef(null);
 
-  const handleScroll = () => {
+  const lineNumbersScrollSync = () => {
     if (lineNumbersRef.current) {
       lineNumbersRef.current.scrollTop = contentRef.current.scrollTop;
     }
@@ -22,7 +22,7 @@ export function Content() {
           placeholder="Start typing here..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          onScroll={handleScroll}
+          onScroll={lineNumbersScrollSync}
           ref={contentRef}
         ></textarea>
       </div>
