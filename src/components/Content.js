@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import LineNumbers from "./LineNumbers";
+import socket from "../websocket";
 
 export function Content() {
   const [content, setContent] = useState("");
@@ -12,6 +13,31 @@ export function Content() {
     }
   };
 
+  useEffect(() => {
+    // log on initial connection
+    socket.on("connect", () => {
+      console.log("connected to websocket server");
+    });
+
+    // listens for updates from the server
+    socket.on("textUpdate", (newContent) => {
+      setContent(newContent);
+    });
+
+    // cleanup
+    return () => {
+      socket.off("textUpdate");
+      socket.off("connect");
+    };
+  });
+
+  const handleTextChange = (e) => {
+    const newContent = e.target.value;
+    setContent(newContent);
+    // emit text changes to server
+    socket.emit("textChange", newContent);
+  };
+
   return (
     <main id="main">
       <div className="content-ctr">
@@ -21,7 +47,8 @@ export function Content() {
           className="content"
           placeholder="Start typing here..."
           value={content}
-          onChange={(e) => setContent(e.target.value)}
+          // onChange={(e) => setContent(e.target.value)}
+          onChange={handleTextChange}
           onScroll={lineNumbersScrollSync}
           ref={contentRef}
         ></textarea>

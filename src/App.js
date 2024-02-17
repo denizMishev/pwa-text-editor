@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Header />
       <Content />
-      <Chat />
+      {/* <Chat /> */}
     </div>
   );
 }
