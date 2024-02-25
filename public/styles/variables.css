@@ -1,5 +1,6 @@
 body {
     background-color: var(--clr-primary-100);
+    font-family: "VT323", monospace;
 }
 
 :root {
@@ -7,7 +8,104 @@ body {
     --clr-primary-200: hsla(120, 100%, 7%, 1);
     --clr-primary-300: hsla(120, 100%, 10%, 1);
     --clr-primary-400: hsla(120, 100%, 13%, 1);
+    --clr-primary-600: hsla(120, 100%, 30%, 1);
 
-    --clr-accent: hsla(120, 100%, 50%, 1);
     --clr-accent-90: hsla(120, 100%, 45%, 1);
+    --clr-accent-100: hsla(120, 100%, 50%, 1);
+    --clr-accent-200: hsla(120, 100%, 90%, 1);
 }
+
+/* util classes */ 
+
+.clr-accent {
+    color: var(--clr-accent-100);
+}
+
+.bg-clr-accent {
+    background-color: var(--clr-accent-100);
+}
+
+.bg-primary-100 {
+    background-color: var(--clr-primary-100);
+}
+
+.bg-primary-200 {
+    background-color: var(--clr-primary-200);
+}
+
+.bg-primary-300 {
+    background-color: var(--clr-primary-300);
+}
+
+.bg-primary-400 {
+    background-color: var(--clr-primary-400);
+}
+
+.clr-primary-100 {
+    color: var(--clr-primary-100);
+}
+
+.clr-primary-200 {
+    color: var(--clr-primary-200);
+}
+
+.clr-primary-300 {
+    color: var(--clr-primary-300);
+}
+
+.clr-primary-400 {
+    color: var(--clr-primary-400);
+}
+
+
+.user-font {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+
+.close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+
+.neon-btn {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-primary-100);
+    background-color: var(--clr-accent-100);
+    border: var(--clr-accent-100) 0.325em ridge;
+    padding: 0.15em 0.65em;
+    transition: box-shadow 0.2s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.neon-btn:hover {
+    box-shadow: inset 0 0 0.5em 0 var(--clr-accent-100), 0 0 0.5em 0 var(--clr-accent-100);
+}
+
+
+
+
+  
+

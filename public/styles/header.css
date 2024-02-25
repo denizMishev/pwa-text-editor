@@ -1,6 +1,12 @@
-header {
+/* text buttons */
+
+#header {
     background-color: #002200;
     padding: 10px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-btns-ctr button {
@@ -14,3 +20,24 @@ header {
 .header-btns-ctr button:hover {
     background-color: #004400;
 }
+
+/* user authentication buttons */
+
+.header-auth-ctr {
+    font-size: 22px;
+}
+
+.register-btn {
+    margin-right: 24px;
+}
+
+.header-auth-ctr button {
+    transform: translateY(0);
+    box-shadow: none; 
+  }
+  
+.header-auth-ctr button:hover {
+    transform: translateY(-2px); 
+    color: hsla(120, 100%, 90%, 1);
+    cursor: pointer;
+  }

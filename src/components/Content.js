@@ -44,7 +44,7 @@ export function Content() {
         <LineNumbers content={content} ref={lineNumbersRef} />
         <textarea
           id="content"
-          className="content"
+          className="content | user-font"
           placeholder="Start typing here..."
           value={content}
           // onChange={(e) => setContent(e.target.value)}

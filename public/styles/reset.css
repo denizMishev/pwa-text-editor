@@ -52,6 +52,10 @@ input, textarea {
     -webkit-user-select: auto;
 }
 
+input {
+    font-family: inherit;
+}
+
 /* revert the 'white-space' property for textarea elements on Safari */
 /* textarea {
     white-space: revert;

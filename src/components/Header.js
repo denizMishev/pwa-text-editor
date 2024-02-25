@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { RegisterModal } from "./RegisterModal";
+
 export function Header() {
+  const [isRegisterOpen, setRegisterOpen] = useState(false);
+
   return (
     <header id="header">
       <div className="header-btns-ctr">
@@ -20,7 +25,23 @@ export function Header() {
         <button>
           <i className="fa-solid fa-align-right"></i>
         </button>
+        <button>
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+        <button>
+          <i class="fa-solid fa-file"></i>
+        </button>
       </div>
+      <div className="header-auth-ctr | clr-accent">
+        <button className="register-btn" onClick={() => setRegisterOpen(true)}>
+          REGISTER
+        </button>
+        <button className="login-btn">LOGIN</button>
+      </div>
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setRegisterOpen(false)}
+      />
     </header>
   );
 }

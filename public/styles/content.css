@@ -27,7 +27,6 @@
     border: none;
     color: #00ff00; 
     padding-left: 18px; 
-    font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     line-height: 1.5;
     resize: none;
@@ -59,7 +58,6 @@
 /* content line numbers */
 
 .content-line-nums {
-    font-family: "VT323", monospace;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
