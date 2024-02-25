@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { RegisterModal } from "./RegisterModal";
+import { LoginModal } from "./LoginModal";
 
 export function Header() {
   const [isRegisterOpen, setRegisterOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
 
   return (
     <header id="header">
@@ -36,12 +38,15 @@ export function Header() {
         <button className="register-btn" onClick={() => setRegisterOpen(true)}>
           REGISTER
         </button>
-        <button className="login-btn">LOGIN</button>
+        <button className="login-btn" onClick={() => setLoginOpen(true)}>
+          LOGIN
+        </button>
       </div>
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setRegisterOpen(false)}
       />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
     </header>
   );
 }
