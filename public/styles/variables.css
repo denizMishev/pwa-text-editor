@@ -63,46 +63,7 @@ body {
 }
 
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
 
-
-.close-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-}
-
-
-.neon-btn {
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--clr-primary-100);
-    background-color: var(--clr-accent-100);
-    border: var(--clr-accent-100) 0.325em ridge;
-    padding: 0.15em 0.65em;
-    transition: box-shadow 0.2s ease;
-    position: relative;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.neon-btn:hover {
-    box-shadow: inset 0 0 0.5em 0 var(--clr-accent-100), 0 0 0.5em 0 var(--clr-accent-100);
-}
 
 
 

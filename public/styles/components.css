@@ -1,0 +1,164 @@
+/* user authentication form */
+
+.auth-form {
+    width: 375px;
+    height: 485px;
+    border: 3mm ridge var(--clr-primary-100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.auth-form-header {
+    width: 100%;
+}
+
+.auth-form-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
+    padding-block: 5px;
+}
+
+.auth-form-topbar span {
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.close-icon-auth {
+    font-size: 28px;
+    padding-inline: 5px;
+    padding-block: 3px;
+}
+
+.close-icon-auth:hover {
+    color: var(--clr-primary-600);
+}
+
+.auth-form-input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.auth-form-input-area .auth-form-input-ctr {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-form-input-area .auth-form-input-ctr label {
+    font-size: 26px;
+}
+
+.auth-form-input-area .auth-form-input-ctr input {
+    border: 2mm ridge var(--clr-primary-100);
+    background-color: var(--clr-primary-400);
+    width: 265px;
+    height: 38px;
+}
+
+.auth-form-input-area .auth-form-input-ctr input:focus {
+    border: 2mm ridge var(--clr-accent-90);
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active { 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--clr-accent-100);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.auth-form-btn-ctr {
+    margin-bottom: 40px;
+}
+
+#login-form {
+    height: 385px;
+}
+
+.error-tooltip {
+    position: absolute;
+    left: 125px;
+    bottom: 325px;
+    max-width: 250px;
+    background-color: var(--clr-primary-100);
+    color: var(--clr-accent-100);
+    border: 2mm ridge var(--clr-primary-100);
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  }
+
+  .error-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Move the arrow to the bottom */
+    left: 20px; /* Adjust this to move the arrow left or right */
+    border-width: 5px;
+    border-style: solid;
+    border-color: #f44336 transparent transparent transparent;
+    /* This creates the triangle pointing downwards. The first value is the color of the tooltip */
+  }
+
+/* ------------------------ */
+
+
+/* modal positioning  */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+/* ------------------------ */
+
+/* close icon */
+
+.close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+/* ------------------------ */
+
+/* neon button */ 
+
+.neon-btn {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-primary-100);
+    background-color: var(--clr-accent-100);
+    border: var(--clr-accent-100) 0.325em ridge;
+    padding: 0.15em 0.65em;
+    transition: box-shadow 0.2s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.neon-btn:hover {
+    box-shadow: inset 0 0 0.5em 0 var(--clr-accent-100), 0 0 0.5em 0 var(--clr-accent-100);
+}
+
+/* ------------------------ */
+
