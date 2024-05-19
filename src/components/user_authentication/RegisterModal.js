@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { auth } from "../../firebaseConfig";
+import { auth } from "../../services/firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import TypingAnimation from "./TypingAnimation";
