@@ -1,12 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { GapBuffer } from "../text_editor/gapBuffer";
 
 export function Content() {
   const gapBuffer = useRef(new GapBuffer());
   const contentRef = useRef(null);
-  const [displayContent, setDisplayContent] = useState("");
 
-  const handleKeyDown = (e) => {
+  function handleUserAction(e) {
+    switch (e.type) {
+      case "input":
+        onInputHandler(e);
+        break;
+      case "keydown":
+        onKeyDownHandler(e);
+        break;
+      case "paste":
+        onPasteHandler(e);
+        break;
+      default:
+        console.error("Unhandled user action:", e.type);
+        break;
+    }
+  }
+
+  const onInputHandler = (e) => {};
+
+  const onPasteHandler = (e) => {
+    e.preventDefault();
+
+    const pastedContent = e.clipboardData.getData("text/plain");
+    for (let char of pastedContent) gapBuffer.current.insert(char);
+    updateDisplay();
+  };
+
+  const onKeyDownHandler = (e) => {
     e.preventDefault();
 
     switch (e.key) {
@@ -34,7 +60,7 @@ export function Content() {
 
   const updateDisplay = () => {
     const text = gapBuffer.current.getContent();
-    setDisplayContent(text);
+    if (contentRef.current) contentRef.current.innerText = text;
   };
 
   useEffect(() => {
@@ -49,11 +75,11 @@ export function Content() {
           id="content"
           className="content | user-font"
           placeholder="Start typing here..."
-          onKeyDown={handleKeyDown}
           ref={contentRef}
-        >
-          {displayContent}
-        </div>
+          onInput={handleUserAction}
+          onKeyDown={handleUserAction}
+          onPaste={handleUserAction}
+        ></div>
       </div>
     </main>
   );

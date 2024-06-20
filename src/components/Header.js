@@ -28,10 +28,10 @@ export function Header() {
           <i className="fa-solid fa-align-right"></i>
         </button>
         <button>
-          <i class="fa-solid fa-floppy-disk"></i>
+          <i className="fa-solid fa-floppy-disk"></i>
         </button>
         <button>
-          <i class="fa-solid fa-file"></i>
+          <i className="fa-solid fa-file"></i>
         </button>
       </div>
       <div className="header-auth-ctr | clr-accent">
