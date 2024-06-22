@@ -33,7 +33,16 @@ export function Content() {
   };
 
   const onKeyDownHandler = (e) => {
-    e.preventDefault();
+    let preventDefault = true;
+    if (e.ctrlKey && e.key === "v") {
+      preventDefault = false;
+    }
+
+    if (preventDefault) {
+      e.preventDefault();
+    }
+
+    console.log("check 2");
 
     switch (e.key) {
       case "ArrowLeft":
@@ -84,3 +93,5 @@ export function Content() {
     </main>
   );
 }
+
+//you introduced an if statement pattern to my switch pattern function, can we not achieve this simultaneous pressing of ctrl and v key as a switch?
