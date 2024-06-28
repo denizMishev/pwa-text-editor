@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import { GapBuffer } from "../text_editor/gapBuffer";
+import { Cursor } from "../text_editor/cursor";
 
 export function Content() {
   const gapBuffer = useRef(new GapBuffer());
+  const cursor = useRef(new Cursor());
   const contentRef = useRef(null);
 
   function handleUserAction(e) {
@@ -28,21 +30,18 @@ export function Content() {
     e.preventDefault();
 
     const pastedContent = e.clipboardData.getData("text/plain");
+
     for (let char of pastedContent) gapBuffer.current.insert(char);
+
     updateDisplay();
   };
 
   const onKeyDownHandler = (e) => {
     let preventDefault = true;
-    if (e.ctrlKey && e.key === "v") {
-      preventDefault = false;
-    }
 
-    if (preventDefault) {
-      e.preventDefault();
-    }
+    if (e.ctrlKey && e.key === "v") preventDefault = false;
 
-    console.log("check 2");
+    if (preventDefault) e.preventDefault();
 
     switch (e.key) {
       case "ArrowLeft":
@@ -93,5 +92,3 @@ export function Content() {
     </main>
   );
 }
-
-//you introduced an if statement pattern to my switch pattern function, can we not achieve this simultaneous pressing of ctrl and v key as a switch?
