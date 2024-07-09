@@ -1,10 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { GapBuffer } from "../text_editor/gapBuffer";
-import { Cursor } from "../text_editor/cursor";
 
 export function Content() {
   const gapBuffer = useRef(new GapBuffer());
-  const cursor = useRef(new Cursor());
   const contentRef = useRef(null);
 
   function handleUserAction(e) {
@@ -62,12 +60,18 @@ export function Content() {
         }
         break;
     }
-
     updateDisplay();
   };
 
   const updateDisplay = () => {
     const text = gapBuffer.current.getContent();
+    console.log(
+      "Current Line:",
+      gapBuffer.current.ln,
+      "Current Column:",
+      gapBuffer.current.col
+    );
+    console.log(gapBuffer.current.lines, "gapbuffer lnes");
     if (contentRef.current) contentRef.current.innerText = text;
   };
 
