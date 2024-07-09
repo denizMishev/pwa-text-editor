@@ -65,14 +65,35 @@ export function Content() {
 
   const updateDisplay = () => {
     const text = gapBuffer.current.getContent();
+    const caretPosition = getCaretPosition(text);
+    const textWithCaret = insertCaretAtPosition(text, caretPosition);
+
     console.log(
       "Current Line:",
       gapBuffer.current.ln,
       "Current Column:",
       gapBuffer.current.col
     );
-    console.log(gapBuffer.current.lines, "gapbuffer lnes");
-    if (contentRef.current) contentRef.current.innerText = text;
+    console.log(gapBuffer.current.lines, "gapbuffer lines");
+
+    if (contentRef.current) contentRef.current.innerHTML = textWithCaret;
+  };
+
+  const getCaretPosition = () => {
+    let position = 0;
+    for (let i = 1; i < gapBuffer.current.ln; i++) {
+      position += gapBuffer.current.lines[i] + 1; // +1 for newline
+    }
+    position += gapBuffer.current.col;
+    return position;
+  };
+
+  const insertCaretAtPosition = (text, position) => {
+    return (
+      text.slice(0, position) +
+      '<span class="caret">|</span>' +
+      text.slice(position)
+    );
   };
 
   useEffect(() => {
