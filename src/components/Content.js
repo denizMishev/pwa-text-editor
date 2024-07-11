@@ -75,6 +75,7 @@ export function Content() {
       gapBuffer.current.col
     );
     console.log(gapBuffer.current.lines, "gapbuffer lines");
+    console.log(gapBuffer.current.gapStart, "gapstart here");
 
     if (contentRef.current) contentRef.current.innerHTML = textWithCaret;
   };

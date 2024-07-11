@@ -22,23 +22,25 @@ export class GapBuffer {
       // case for first character ever
       //avoid += due to type coercion
       this.lines[this.ln] = 1;
+      this.col++;
     } else if (this.lines[this.ln] !== undefined && character !== "\n") {
       // case for if there is already a line created for our current position and the caret is not positioned on the new line index
       this.lines[this.ln]++;
+      this.col++;
     }
     if (character === "\n" && this.newLinesPositions[this.ln] !== this.col) {
       this.newLinesPositions[this.ln] = this.col;
       this.ln++;
       this.lines[this.ln] = 0;
+      this.col = 0;
     } else if (
       character === "\n" &&
       this.newLinesPositions[this.ln] === this.col
     ) {
       this.ln++;
       this.lines[this.ln] = 0;
+      this.col = 0;
     }
-
-    this.col = this.lines[this.ln];
   }
 
   delete() {
@@ -103,7 +105,7 @@ export class GapBuffer {
       // case if the caret is at the end of the current line
       if (this.lines[this.ln + 1] !== undefined) {
         this.ln++;
-        this.col = this.lines[this.ln];
+        this.col = 0;
       }
     }
   }
