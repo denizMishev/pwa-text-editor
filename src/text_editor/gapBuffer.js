@@ -28,15 +28,8 @@ export class GapBuffer {
       this.lines[this.ln]++;
       this.col++;
     }
-    if (character === "\n" && this.newLinesPositions[this.ln] !== this.col) {
+    if (character === "\n") {
       this.newLinesPositions[this.ln] = this.col;
-      this.ln++;
-      this.lines[this.ln] = 0;
-      this.col = 0;
-    } else if (
-      character === "\n" &&
-      this.newLinesPositions[this.ln] === this.col
-    ) {
       this.ln++;
       this.lines[this.ln] = 0;
       this.col = 0;
