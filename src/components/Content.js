@@ -86,7 +86,7 @@ export function Content() {
       position += gapBuffer.current.lines[i] + 1; // +1 for newline
     }
     position += gapBuffer.current.col;
-    return position;
+    return gapBuffer.current.gapStart;
   };
 
   const insertCaretAtPosition = (text, position) => {

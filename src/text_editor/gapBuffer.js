@@ -30,8 +30,18 @@ export class GapBuffer {
     }
     if (character === "\n") {
       this.newLinesPositions[this.ln] = this.col;
+      let remainingTxt = this.lines[this.ln] - this.col;
+      let nextLn = this.ln + 1;
+
+      // shift lines after the current line
+      for (let i = Object.keys(this.lines).length; i > this.ln; i--) {
+        this.lines[i + 1] = this.lines[i];
+      }
+
+      this.lines[nextLn] = remainingTxt;
+      this.lines[this.ln] = this.col;
+
       this.ln++;
-      this.lines[this.ln] = 0;
       this.col = 0;
     }
   }
