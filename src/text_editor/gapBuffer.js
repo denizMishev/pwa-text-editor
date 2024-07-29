@@ -94,6 +94,40 @@ export class GapBuffer {
     }
   }
 
+  up() {
+    if (this.ln > 1) {
+      const targetCol = Math.min(this.col, this.lines[this.ln - 1]);
+      const targetLn = this.ln - 1;
+
+      let targetPosition = 0;
+      for (let i = 1; i < targetLn; i++) {
+        targetPosition += this.lines[i] + 1; // +1 for newline character
+      }
+      targetPosition += targetCol;
+
+      while (this.gapStart > targetPosition) {
+        this.left();
+      }
+    }
+  }
+
+  down() {
+    if (this.lines[this.ln + 1] !== undefined) {
+      const targetCol = Math.min(this.col, this.lines[this.ln + 1]);
+      const targetLn = this.ln + 1;
+
+      let targetPosition = 0;
+      for (let i = 1; i < targetLn; i++) {
+        targetPosition += this.lines[i] + 1; // +1 for newline character
+      }
+      targetPosition += targetCol;
+
+      while (this.gapStart < targetPosition) {
+        this.right();
+      }
+    }
+  }
+
   right() {
     if (this.gapEnd < this.buffer.length - 1) {
       this.buffer[this.gapStart] = this.buffer[this.gapEnd + 1];

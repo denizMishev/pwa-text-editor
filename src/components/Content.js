@@ -48,6 +48,12 @@ export function Content() {
       case "ArrowRight":
         gapBuffer.current.right();
         break;
+      case "ArrowUp":
+        gapBuffer.current.up();
+        break;
+      case "ArrowDown":
+        gapBuffer.current.down();
+        break;
       case "Backspace":
         gapBuffer.current.delete();
         break;
