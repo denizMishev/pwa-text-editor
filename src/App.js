@@ -1,11 +1,16 @@
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
+import { Bottombar } from "./components/Bottombar";
+import { GapBufferProvider } from "./context/GapBufferContext";
 
 function App() {
   return (
-    <div className="App">
+    <div id="layout-wrapper" className="App">
       <Header />
-      <Content />
+      <GapBufferProvider>
+        <Content />
+        <Bottombar />
+      </GapBufferProvider>
     </div>
   );
 }

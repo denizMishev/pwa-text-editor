@@ -1,43 +1,40 @@
-/* text buttons */
-
 #header {
-    background-color: #002200;
-    padding: 10px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px var(--app-inline-spacing);
+  width: 100%;
+}
+
+.header-btns-ctr {
+  display: flex;
+  gap: 16px;
 }
 
 .header-btns-ctr button {
-    background-color: #003300;
-    color: #00ff00;
-    padding: 5px 10px;
-    margin-right: 14px;
-    cursor: pointer;
+  background-color: #003300;
+  color: #00ff00;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 .header-btns-ctr button:hover {
-    background-color: #004400;
+  background-color: #004400;
 }
-
-/* user authentication buttons */
 
 .header-auth-ctr {
-    font-size: 22px;
-}
-
-.register-btn {
-    margin-right: 24px;
+  display: flex;
+  gap: 16px;
+  font-size: 24px;
 }
 
 .header-auth-ctr button {
-    transform: translateY(0);
-    box-shadow: none; 
-  }
-  
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .header-auth-ctr button:hover {
-    transform: translateY(-2px); 
-    color: hsla(120, 100%, 90%, 1);
-    cursor: pointer;
-  }
+  transform: translateY(-2px);
+  color: hsla(120, 100%, 90%, 1);
+  cursor: pointer;
+}

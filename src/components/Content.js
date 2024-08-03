@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import { GapBuffer } from "../text_editor/gapBuffer";
+import { GapBufferContext } from "../context/GapBufferContext";
 
 export function Content() {
   const gapBuffer = useRef(new GapBuffer());
+  const { setGapBufferState } = useContext(GapBufferContext);
   const contentRef = useRef(null);
 
   function handleUserAction(e) {
@@ -22,7 +24,9 @@ export function Content() {
     }
   }
 
-  const onInputHandler = (e) => {};
+  const onInputHandler = (e) => {
+    updateDisplay();
+  };
 
   const onPasteHandler = (e) => {
     e.preventDefault();
@@ -83,7 +87,14 @@ export function Content() {
     console.log(gapBuffer.current.lines, "gapbuffer lines");
     console.log(gapBuffer.current.gapStart, "gapstart here");
 
-    if (contentRef.current) contentRef.current.innerHTML = textWithCaret;
+    setGapBufferState({ ln: gapBuffer.current.ln, col: gapBuffer.current.col });
+
+    if (contentRef.current) {
+      contentRef.current.innerHTML = textWithCaret;
+      setTimeout(() => {
+        contentRef.current.scrollTop = contentRef.current.scrollHeight;
+      }, 0);
+    }
   };
 
   const getCaretPosition = () => {
@@ -113,7 +124,7 @@ export function Content() {
         <div
           contentEditable="true"
           id="content"
-          className="content | user-font"
+          className="content | user-font clr-accent-100 bg-primary-100"
           placeholder="Start typing here..."
           ref={contentRef}
           onInput={handleUserAction}

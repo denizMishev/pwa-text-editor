@@ -1,0 +1,10 @@
+#bottom-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  padding-block: 2px;
+  padding-right: var(--app-inline-spacing);
+  font-size: 18px;
+  border-top: 1px solid var(--clr-primary-400);
+}

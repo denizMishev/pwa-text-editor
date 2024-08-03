@@ -78,11 +78,11 @@ export function RegisterModal({ isOpen, onClose }) {
             </header>
             <div className="auth-form-input-area">
               <div className="auth-form-input-ctr">
-                <label className="clr-accent" htmlFor="email-input">
+                <label className="clr-accent-100" htmlFor="email-input">
                   Email
                 </label>
                 <input
-                  className="clr-accent user-font"
+                  className="clr-accent-100 user-font"
                   type="email"
                   name="email"
                   id="email-input"
@@ -98,11 +98,11 @@ export function RegisterModal({ isOpen, onClose }) {
                 </div>
               </div>
               <div className="auth-form-input-ctr">
-                <label className=" clr-accent" htmlFor="username-input">
+                <label className=" clr-accent-100" htmlFor="username-input">
                   Username
                 </label>
                 <input
-                  className="clr-accent user-font"
+                  className="clr-accent-100 user-font"
                   type="text"
                   name="username"
                   id="username-input"
@@ -115,12 +115,12 @@ export function RegisterModal({ isOpen, onClose }) {
                 />
               </div>
               <div className="auth-form-input-ctr">
-                <label className=" clr-accent" htmlFor="password-input">
+                <label className=" clr-accent-100" htmlFor="password-input">
                   Password
                 </label>
                 <input
                   id="password-input"
-                  className="clr-accent user-font"
+                  className="clr-accent-100 user-font"
                   type="password"
                   name="password"
                   required

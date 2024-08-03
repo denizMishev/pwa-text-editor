@@ -1,4 +1,6 @@
+@import "layout.css";
 @import "variables.css";
 @import "header.css";
 @import "content.css";
+@import "bottom-bar.css";
 @import "components.css";

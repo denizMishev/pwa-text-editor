@@ -7,7 +7,7 @@ export function Header() {
   const [isLoginOpen, setLoginOpen] = useState(false);
 
   return (
-    <header id="header">
+    <header id="header" className="bg-primary-200">
       <div className="header-btns-ctr">
         <button>
           <i className="fa-solid fa-bold"></i>
@@ -34,7 +34,7 @@ export function Header() {
           <i className="fa-solid fa-file"></i>
         </button>
       </div>
-      <div className="header-auth-ctr | clr-accent">
+      <div className="header-auth-ctr | clr-accent-100">
         <button className="register-btn" onClick={() => setRegisterOpen(true)}>
           REGISTER
         </button>

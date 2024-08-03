@@ -10,7 +10,7 @@ export const LineNumbers = forwardRef(({ content }, ref) => {
     <textarea
       readOnly
       value={lineNumbers}
-      className="content-line-nums"
+      className="content-line-nums | bg-primary-100 clr-accent-100"
       ref={ref}
     />
   );

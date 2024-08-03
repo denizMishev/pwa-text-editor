@@ -21,22 +21,22 @@ export function LoginModal({ isOpen, onClose }) {
             </header>
             <div className="auth-form-input-area">
               <div className="auth-form-input-ctr">
-                <label className=" clr-accent" htmlFor="email-input">
+                <label className=" clr-accent-100" htmlFor="email-input">
                   Email
                 </label>
                 <input
                   id="email-input"
-                  className="clr-accent user-font"
+                  className="clr-accent-100 user-font"
                   type="email"
                 />
               </div>
               <div className="auth-form-input-ctr">
-                <label className=" clr-accent" htmlFor="password-input">
+                <label className="clr-accent-100" htmlFor="password-input">
                   Password
                 </label>
                 <input
                   id="password-input"
-                  className="clr-accent user-font"
+                  className="clr-accent-100 user-font"
                   type="password"
                 />
               </div>
