@@ -1,0 +1,32 @@
+.content-line-nums {
+  font-size: 20px;
+  width: 35px;
+  display: block;
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 5px;
+  text-align: center;
+  user-select: none;
+  overflow: hidden;
+  line-height: 1.2;
+  height: 100%;
+  resize: none;
+  white-space: pre;
+  overflow-y: auto;
+}
+
+.current-line {
+  color: var(--clr-accent-200);
+}
+
+/* remove scroll*/
+
+.content-line-nums::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.content-line-nums {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

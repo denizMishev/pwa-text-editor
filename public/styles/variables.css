@@ -27,6 +27,10 @@ body {
   color: var(--clr-accent-100);
 }
 
+.clr-accent-200 {
+  color: var(--clr-accent-200);
+}
+
 .bg-clr-accent {
   background-color: var(--clr-accent-100);
 }

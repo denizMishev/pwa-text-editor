@@ -2,5 +2,6 @@
 @import "variables.css";
 @import "header.css";
 @import "content.css";
+@import "line-numbers.css";
 @import "bottom-bar.css";
 @import "components.css";

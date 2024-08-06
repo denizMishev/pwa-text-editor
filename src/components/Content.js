@@ -1,11 +1,13 @@
 import { useRef, useEffect, useContext } from "react";
 import { GapBuffer } from "../text_editor/gapBuffer";
 import { GapBufferContext } from "../context/GapBufferContext";
+import { LineNumbers } from "./LineNumbers";
 
 export function Content() {
   const gapBuffer = useRef(new GapBuffer());
   const { setGapBufferState } = useContext(GapBufferContext);
   const contentRef = useRef(null);
+  const lineNumbersRef = useRef(null);
 
   function handleUserAction(e) {
     switch (e.type) {
@@ -78,16 +80,14 @@ export function Content() {
     const caretPosition = getCaretPosition(text);
     const textWithCaret = insertCaretAtPosition(text, caretPosition);
 
-    console.log(
-      "Current Line:",
-      gapBuffer.current.ln,
-      "Current Column:",
-      gapBuffer.current.col
-    );
     console.log(gapBuffer.current.lines, "gapbuffer lines");
     console.log(gapBuffer.current.gapStart, "gapstart here");
 
-    setGapBufferState({ ln: gapBuffer.current.ln, col: gapBuffer.current.col });
+    setGapBufferState({
+      ln: gapBuffer.current.ln,
+      col: gapBuffer.current.col,
+      lines: gapBuffer.current.lines,
+    });
 
     if (contentRef.current) {
       contentRef.current.innerHTML = textWithCaret;
@@ -114,6 +114,22 @@ export function Content() {
     );
   };
 
+  const handleScroll = () => {
+    if (lineNumbersRef.current && contentRef.current) {
+      lineNumbersRef.current.scrollTop = contentRef.current.scrollTop;
+    }
+  };
+
+  useEffect(() => {
+    const contentElement = contentRef.current;
+    if (contentElement) {
+      contentElement.addEventListener("scroll", handleScroll);
+      return () => {
+        contentElement.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   useEffect(() => {
     updateDisplay();
   }, []);
@@ -121,6 +137,12 @@ export function Content() {
   return (
     <main id="main">
       <div className="content-ctr">
+        <div
+          ref={lineNumbersRef} // Add ref for line numbers container
+          className="content-line-nums | bg-primary-100 clr-accent-100"
+        >
+          <LineNumbers />
+        </div>
         <div
           contentEditable="true"
           id="content"
